@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import tensorflow as tf
 
-class digit_predict:
+class Digit_prediction:
 
     # Initializing the classifier using the pre-trained model
     def __init__(self):
