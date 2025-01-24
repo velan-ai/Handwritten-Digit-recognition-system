@@ -21,5 +21,6 @@ class Digit_prediction:
         predicted_label = np.argmax(prediction)
         return predicted_label
 
-    def
+    def draw_contour(self, Con):
+        # This function is to draw the contours
 
