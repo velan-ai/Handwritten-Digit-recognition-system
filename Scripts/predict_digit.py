@@ -21,3 +21,5 @@ class Digit_prediction:
         predicted_label = np.argmax(prediction)
         return predicted_label
 
+    def
+
