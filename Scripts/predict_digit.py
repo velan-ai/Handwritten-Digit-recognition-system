@@ -7,7 +7,7 @@ import os
 class Digit_prediction:
 
     # Initializing the classifier using the pre-trained model
-    def __init__(self):
+    def __init__(self, model_path):
         self.model = tf.keras.models.load_model(model_path)
 
     def pre_process(self,image): # image = filepath of the image
@@ -23,7 +23,7 @@ class Digit_prediction:
         predicted_label = np.argmax(prediction)
         return predicted_label
 
-    def draw_contour(self, image_path, out_dir):
+    def draw_contour(self, image_path, out_dir, predict):
         # This function is to draw the contours
 
         # Load the image
@@ -58,7 +58,7 @@ class Digit_prediction:
             rs_crop_img = cv2.resize(crop_img, (28, 28))
 
             # Save the cropped image
-            digit_path = os.path.join(self.out_dir, f'digit_{idx}.png')
+            digit_path = os.path.join(out_dir, f'digit_{idx}.png')
             cv2.imwrite(digit_path, rs_crop_img)
 
             # Predict the digit and display the result
@@ -66,7 +66,7 @@ class Digit_prediction:
             print(f"Digit {idx}: Predicted Label = {predicted_label}")
 
         # Save and display the contoured image
-        contoured_output_path = os.path.join(self.out_dir, 'Contoured.png')
+        contoured_output_path = os.path.join(out_dir, 'Contoured.png')
         cv2.imwrite(contoured_output_path, contoured_image)
 
         plt.figure(figsize=(10, 5))
