@@ -4,7 +4,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import os
 
-class Digit_prediction:
+class Digit_prediction():
 
     # Initializing the classifier using the pre-trained model
     def __init__(self, model_path):
