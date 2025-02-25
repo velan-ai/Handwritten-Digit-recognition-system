@@ -18,11 +18,7 @@ class DigitClassifier:
         return img
 
     def predict_digit(self, file_path: str) -> int:
-        """
-        Predicts the digit in the given image file.
-        :param file_path: Path to the image file.
-        :return: Predicted digit label.
-        """
+        # predict the digits from the grayscaled images
         img = self.grayscale(file_path)
         prediction = self.model.predict(img)
         predicted_label = prediction.argmax()
